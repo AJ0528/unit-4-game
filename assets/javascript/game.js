@@ -1,17 +1,60 @@
-var randomResult;
-var loss;
-var win;
 
-for(var i = 0; i<4; i++){
-    var random = Math.floor(Math.random() * 10);
-    console.log("random");
-    var crystals = $("<div>");
-        crystal.attr("class", 'crystal');
-        }
+var randomResult;
+var loss=0;
+var win =0;
+var previous = 0;
+
+var startGame = function() {
+    $(".crystals").empty();
+    
+     randomResult = Math.floor(Math.random() * 69) + 30;
+}
    
- $(".crystals").append(crystal);
-    console.log("")
-});
+
+$("#result").html("Random Result:" + randomResult);
+
+for (var i = 0; i < 4; i++) {
+    var random = Math.floor(Math.random() * 10) + 1;
+    console.log("random");
+
+    var crystals = $("<div>");
+    crystals.attr({
+        "class": "crystals", "data-random": random
+        });
+
+        crystals.html(random);
+    $(".crystals").append(crystal);
+    }
+
+startGame();
+
+
+
+    $(document).on("click", function () {
+
+        var num = parseInt($(this).attr("data-random"));
+        previous = num;
+        console.log(previous);
+
+        if(previous > randomResult){
+           loss--;
+           $("#loss").html(lost);
+
+           previous = 0;
+
+           startGame();
+        }
+        else if (previous === randomResult)
+        win++;
+
+        $("#win").hmtl(win);
+        
+        previous = 0;
+     
+        startGame();
+
+
+    });
 
 
 
@@ -22,6 +65,5 @@ for(var i = 0; i<4; i++){
 // needs to have random number
 // Every crystal needs a random number
 // needs click functions
-// crysal should add up
+// crysal should add up. 
 
-console.log("hello world");
