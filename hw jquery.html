@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Crystal Game</title>
+    
+    <style type="text/css">
+    .crystals-image{
+        width: 300px;
+        height:300px;
+    }
+    
+    </style>
+    
+</head>
+<body>
+   <h1>Target Number<span id = "target-number"></span></h1>
+
+   <div id ="crystals">
+   </div>
+
+
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script type="text/javascript">
+
+    var targetNumber = 53;
+
+    $("#target-number").text(targetNumber);
+
+    var counter =0;
+
+    var ArrayNumbers = [10,5,3,7];
+        for (var i =0; i < ArrayNumbers.length; i++){
+            var Crystal_img=$("<img>");
+
+            Crystal_img.addClass("crystal-img");
+
+            Crystal_img.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+
+            Crystal_img.attr("data-crystalvalue", ArrayNumbers[i]);
+
+            $("#crystals").append(Crystal_img);
+
+        }
+
+
+        $(".crystal-image").on("click",function(){
+        
+    
+        
+        var crystalValue= ($(this).attr("data-crystalvalue"));
+            crystalValue = parseInt(crystalValue);
+            counter+=crystalValue;
+
+            alert("New score: " + counter);
+        if(counter === targetNumber){
+            alert("You Win");
+        }
+        else if (counter >= targetNumber){
+            alert("You lose"); 
+        }
+        });
+
+</script>
+
+</body>
+
+</html>

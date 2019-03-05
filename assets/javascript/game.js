@@ -6,7 +6,7 @@ var previous = 0;
 
 var startGame = function() {
     $(".crystals").empty();
-    
+
      randomResult = Math.floor(Math.random() * 69) + 30;
 }
    
@@ -26,7 +26,9 @@ for (var i = 0; i < 4; i++) {
     $(".crystals").append(crystal);
     }
 
-startGame();
+    $("#previous").html("Your Score:" + previous);
+    
+    startGame();
 
 
 
@@ -47,7 +49,7 @@ startGame();
         else if (previous === randomResult)
         win++;
 
-        $("#win").hmtl(win);
+        $("#win").hmtl("win" + win);
         
         previous = 0;
      
