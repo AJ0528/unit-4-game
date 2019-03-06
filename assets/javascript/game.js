@@ -1,17 +1,19 @@
 
-var randomResult;
+var randomResult=Math.floor(Math.random() * 69) + 30;
 var loss=0;
 var win =0;
 var previous = 0;
 
-var startGame = function() {
-    $(".crystals").empty();
+// var startGame = function() {
+    // $(".crystals").empty();
 
-     randomResult = Math.floor(Math.random() * 69) + 30;
-}
+     
+     console.log(randomResult)
+// }
    
+var result = $("<h1>" + randomResult +"</h1>");
+$("#guess").append(result);
 
-$("#result").html("Random Result:" + randomResult);
 
 for (var i = 0; i < 4; i++) {
     var random = Math.floor(Math.random() * 10) + 1;
